@@ -119,7 +119,7 @@ public class IOUtility {
 	 * @return Date value which has been formatted
 	 */
 	public Date convertToDate(String in) {
-		/*Date date = null;
+		Date date = null;
 		DateFormat d = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz");
 		d.setTimeZone(TimeZone.getTimeZone("GMT"));
 		try {
@@ -128,8 +128,7 @@ public class IOUtility {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return date;*/
-		return convertStringToDate(in);
+		return date;		
 	}
 	
 	/**

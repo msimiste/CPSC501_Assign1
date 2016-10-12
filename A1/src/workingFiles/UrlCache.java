@@ -386,7 +386,7 @@ public class UrlCache {
 		int a = header.indexOf("Last-Modified:");
 		String date = header.substring(a + 15, a + 44).trim();
 
-		Date d = inOut.convertToDate(date);
+		Date d = inOut.convertStringToDate(date);
 		return d.getTime();
 	}
 
