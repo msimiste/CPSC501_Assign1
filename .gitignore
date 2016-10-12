@@ -1,3 +1,16 @@
+# ignore .metadata files
+.metadata/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
 *.class
 
 # Mobile Tools for Java (J2ME)
