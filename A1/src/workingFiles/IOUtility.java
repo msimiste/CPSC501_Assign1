@@ -130,6 +130,26 @@ public class IOUtility {
 		}
 		return date;
 	}
+	
+	/**
+	 * 
+	 * @param in - A date in the form of a String
+	 * @return Date value which has been formatted
+	 */
+	public Date convertStringToDate(String in) {
+		Date date = null;
+		DateFormat d = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz");
+		d.setTimeZone(TimeZone.getTimeZone("GMT"));
+		try {
+			date = d.parse(in);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return date;
+	}
+	
+	
 
 	/**
 	 * 
