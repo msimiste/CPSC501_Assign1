@@ -27,7 +27,7 @@ public class testIOUtilNoFile {
 	}
 
 	@Test
-	public void testCheckLocalCache_WhenLocalFileExists() {
+	public void testCheckLocalCache_WhenLocalFileDoesNotExist() {
 
 		String catalogFilePath = "catalog.txt";
 		File catalogFile = new File(catalogFilePath);

@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import workingFiles.IOUtility;
 
-public class testIOUtilExistingFile {
+public class testIOUtilExistingFIle {
 
 	
 	@Before public void setUp(){

@@ -38,25 +38,7 @@ public class UrlCache {
 	 * @throws UrlCacheException if encounters any errors/exceptions
 	 */
 	public UrlCache() throws UrlCacheException {
-
-		
-		inOut = new IOUtility();
-
-		// Check local cache, load the catalog if it exists
-		if (inOut.checkLocalCache()) {
-			catalog = inOut.readCatalogFromFile();
-		}
-
-		// create catalog file if none exists
-		else {
-
-			try {
-				inOut.createCatalogFile();
-			} catch (Exception e) {
-				//e.printStackTrace();
-				System.out.println(e.getMessage());
-			} 
-		}
+		createCatalogIfNoneExists();
 	}
 
 	/**
@@ -109,23 +91,17 @@ public class UrlCache {
 		
 		inOut = new IOUtility();
 
-		// Check local cache, load the catalog if it exists
 		if (inOut.checkLocalCache()) {
 			catalog = inOut.readCatalogFromFile();
 		}
-
-		// create catalog file if none exists
 		else {
-
 			try {
 				inOut.createCatalogFile();
 			} catch (Exception e) {
-				//e.printStackTrace();
 				System.out.println(e.getMessage());
 			} 
 		}		
-	}
-	
+	}	
 	
 /**
  * Initiates communication with the server, determines if a regular GET or a conditional GET should be used
