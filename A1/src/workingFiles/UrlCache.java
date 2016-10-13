@@ -107,6 +107,23 @@ public class UrlCache {
 	
 	private void createCatalogIfNoneExists(){
 		
+		inOut = new IOUtility();
+
+		// Check local cache, load the catalog if it exists
+		if (inOut.checkLocalCache()) {
+			catalog = inOut.readCatalogFromFile();
+		}
+
+		// create catalog file if none exists
+		else {
+
+			try {
+				inOut.createCatalogFile();
+			} catch (Exception e) {
+				//e.printStackTrace();
+				System.out.println(e.getMessage());
+			} 
+		}		
 	}
 	
 	
