@@ -105,6 +105,10 @@ public class UrlCache {
 		
 	}
 	
+	private void createCatalogIfNoneExists(){
+		
+	}
+	
 	
 /**
  * Initiates communication with the server, determines if a regular GET or a conditional GET should be used
