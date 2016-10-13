@@ -109,31 +109,31 @@ public class UrlCache {
 		
 		try {
 
-			httpSocket = new Socket(InetAddress.getByName(hostName), port);
+			httpSocket = new Socket(InetAddress.getByName(host.getHostName()), host.getPort());
 			outStream = new PrintWriter((httpSocket.getOutputStream()));
-			outStream.print("GET " + path + " HTTP/1.1\r\n");
+			outStream.print("GET " + host.getConcatPath() + " HTTP/1.1\r\n");
 
 			// add this part to create a conditional get as the file exists
 			// locally
 			if (exists) {
-				long lastMod = getLastModified(hostName + path);
+				long lastMod = getLastModified(host.getHostName() + host.getConcatPath());
 				String date = inOut.convertDateToString(lastMod);
 
 				outStream.print("If-modified-since: " + date + "\r\n");
-				outStream.print("Host: "+hostName+"\r\n\r\n");
+				outStream.print("Host: "+host.getHostName()+"\r\n\r\n");
 
 			}
 
 			else {
-				outStream.print("Host: "+hostName+"\r\n\r\n");
+				outStream.print("Host: "+host.getHostName()+"\r\n\r\n");
 			}
 			
 			outStream.flush();
 			inStream = httpSocket.getInputStream();
 
-			path = hostName + path;
+			host.setConcatPath(host.getHostName() + host.getConcatPath());
 			
-			writeToFile(path, fileName, inStream);	
+			writeToFile(host.getConcatPath(), host.getFileName(), inStream);	
 
 			inStream.close();
 			outStream.close();
