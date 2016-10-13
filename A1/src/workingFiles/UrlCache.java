@@ -51,15 +51,12 @@ public class UrlCache {
 	 *             if encounters any errors/exceptions
 	 */
 	public void getObject(String url) throws UrlCacheException {
-
-		// split the url into usable pieces
 		Host host = new Host(url);
 
 		// set the boolean flag to true if the file exists in the catalog,
-		// false otherwise
 		boolean fileExists = checkCatalogForFile(url);
 
-		beginDownloadStream(host.getHostName(), host.getPort(), host.getConcatPath(), host.getFileName(), fileExists);
+		beginDownloadStream(host, fileExists);
 	}
 
 	/**
@@ -108,8 +105,7 @@ public class UrlCache {
  * @param exists - boolean indicating if the file exists in local cache or not
  * @throws UrlCacheException
  */
-	private void beginDownloadStream(String hostName, int port, String path,
-			String fileName, boolean exists) throws UrlCacheException {
+	private void beginDownloadStream(Host host, boolean exists) throws UrlCacheException {
 		
 		try {
 
