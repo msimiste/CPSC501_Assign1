@@ -53,19 +53,13 @@ public class UrlCache {
 	public void getObject(String url) throws UrlCacheException {
 
 		// split the url into usable pieces
-		String hostName = parseUrl(url);
-		int port = getPort(hostName);
-		hostName = removePortFromHostname(hostName);
-		String path = parsePath(url);
-		String fileName = parseTail(url);
-		String concatPath = path + "/" + fileName;
-		url = hostName + concatPath;
+		Host host = new Host(url);
 
 		// set the boolean flag to true if the file exists in the catalog,
 		// false otherwise
 		boolean fileExists = checkCatalogForFile(url);
 
-		beginDownloadStream(hostName, port, concatPath, fileName, fileExists);
+		beginDownloadStream(host.getHostName(), host.getPort(), host.getConcatPath(), host.getFileName(), fileExists);
 	}
 
 	/**
