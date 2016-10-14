@@ -6,7 +6,6 @@ import java.io.File;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import workingFiles.IOUtility;
@@ -23,6 +22,21 @@ public class testIOUtilNoFile {
 				catalogFile.delete();
 			} catch (Exception e) {
 			}
+		}
+	}
+	
+	@After
+	public void tearDown(){
+		
+		String testFilePath = "testDir/testSubDir/TestFileName.txt"; 
+		File testFile = new File(testFilePath);
+		File parent = new File("testDir/testSubDir/");
+		File grandParent = new File("testDir");
+		
+		if(testFile.exists()){
+			testFile.delete();
+			parent.delete();
+			grandParent.delete();
 		}
 	}
 
@@ -48,7 +62,16 @@ public class testIOUtilNoFile {
 			catalogFile.delete();
 		} catch (Exception e) {
 		}
-
 	}
-
+	
+	@Test	
+	public void testMakeFileAndDir(){
+		String testFileName = "TestFileName.txt";
+		String testPath = "testDir/testSubDir/";
+		
+		IOUtility util = new IOUtility();
+		
+		File testFile = util.makeFileAndDir(testPath, testFileName);
+		assertEquals(true,testFile.exists());
+	}
 }
