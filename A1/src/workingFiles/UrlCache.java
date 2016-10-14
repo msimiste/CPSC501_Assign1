@@ -192,7 +192,7 @@ public class UrlCache {
 						//start writing bytes to the file.
 						if ((inspectHeader())) {
 							String newPath = path.substring(0, path.lastIndexOf("/"));
-							File outFile = makeFileAndDir(newPath, fileName);
+							File outFile = inOut.makeFileAndDir(newPath, fileName);
 							
 							out = new FileOutputStream(
 									outFile.getAbsolutePath());
