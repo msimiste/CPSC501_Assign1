@@ -58,8 +58,7 @@ public class testUrlCacheMethods {
 			parent.delete();
 			grandParent.delete();
 		}
-	}
-	
+	}	
 	
 	@Test (expected = UrlCacheException.class)
 	public void testGetObjectForUrlCacheException() throws UrlCacheException{
