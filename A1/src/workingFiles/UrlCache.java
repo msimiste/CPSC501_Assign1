@@ -242,15 +242,7 @@ public class UrlCache {
 		
 	}
 
-	/**
-	 * 
-	* @param path The path which represents the folder structure on both locally and on the server
-	 * @param fileName The name of the file
-	 * @return a newly created file
-	 */		
-	public File makeFileAndDir(String path, String fileName) {
-		return inOut.makeFileAndDir(path, fileName);
-	}
+
 
 	/**
 	 * 

@@ -81,14 +81,4 @@ public class testUrlCacheMethods {
 		File testFile = new File(testFilePath);
 		assertEquals(true,testFile.exists());		
 	}
-	
-	@Test
-	public void testMakeFileAndDir(){
-		String testFileName = "TestFileName.txt";
-		String testPath = "testDir/testSubDir/";
-		
-		File testFile = urlCache.makeFileAndDir(testPath, testFileName);
-		assertEquals(true,testFile.exists());
-	}
-
 }
