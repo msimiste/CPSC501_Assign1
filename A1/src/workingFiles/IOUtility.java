@@ -1,4 +1,5 @@
 package workingFiles;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,9 +18,9 @@ import java.util.TimeZone;
 
 /**
  * 
- * @author msimiste
- * This Class was created in order to assist with the I/O involved in CPSC441 Assignment1
- * Additionally, some date conversion utilities were required and added to this class
+ * @author msimiste This Class was created in order to assist with the I/O
+ *         involved in CPSC441 Assignment1 Additionally, some date conversion
+ *         utilities were required and added to this class
  * @version 1.0 Oct 02, 2015
  */
 public class IOUtility {
@@ -27,7 +28,8 @@ public class IOUtility {
 	private String catalogFilePath = "catalog.txt";
 	private File catalogFile = new File(catalogFilePath);
 
-	public IOUtility() {}
+	public IOUtility() {
+	}
 
 	/**
 	 * 
@@ -61,7 +63,9 @@ public class IOUtility {
 
 	/**
 	 * 
-	 * @param catalog - A hashmap, the contents of which are stored in a file locally
+	 * @param catalog
+	 *            - A hashmap, the contents of which are stored in a file
+	 *            locally
 	 */
 	public void writeCatalogToFile(Map<String, Long> catalog) {
 
@@ -95,7 +99,7 @@ public class IOUtility {
 	public boolean checkLocalCache() {
 		return catalogFile.exists();
 	}
-	
+
 	/**
 	 * Creates a catalog file, throwing exceptions if there is an error in the
 	 * process
@@ -115,7 +119,8 @@ public class IOUtility {
 
 	/**
 	 * 
-	 * @param in - A date in the form of a String
+	 * @param in
+	 *            - A date in the form of a String
 	 * @return Date value which has been formatted
 	 */
 	public Date convertStringToDate(String in) {
@@ -130,13 +135,16 @@ public class IOUtility {
 		}
 		return date;
 	}
-	
+
 	/**
 	 * 
-	* @param path The path which represents the folder structure on both locally and on the server
-	 * @param fileName The name of the file
+	 * @param path
+	 *            The path which represents the folder structure on both locally
+	 *            and on the server
+	 * @param fileName
+	 *            The name of the file
 	 * @return a newly created file
-	 */		
+	 */
 	public File makeFileAndDir(String path, String fileName) {
 		// concatenate the file path
 		String dir = System.getProperty("user.dir");
@@ -175,8 +183,6 @@ public class IOUtility {
 		}
 		return date;
 	}
-	
-	
 
 	/**
 	 * 
