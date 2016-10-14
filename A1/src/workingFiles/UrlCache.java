@@ -249,22 +249,7 @@ public class UrlCache {
 	 * @return a newly created file
 	 */		
 	public File makeFileAndDir(String path, String fileName) {
-		// concatenate the file path
-		String dir = System.getProperty("user.dir");
-		String separator = System.getProperty("file.separator");
-		String absPath = dir + separator + path;
-
-		File outFile = new File(absPath, fileName);
-
-		outFile.getParentFile().mkdirs();
-		try {
-			outFile.createNewFile();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return outFile;
+		return inOut.makeFileAndDir(path, fileName);
 	}
 
 	/**
