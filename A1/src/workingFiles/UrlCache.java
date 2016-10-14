@@ -209,15 +209,12 @@ public class UrlCache {
 				// if the inputstream was larger than the bytearray,  continue writing to the file
 				else {
 					out.write(buffer, 0, count);					
-				}
-				
-				
+				}				
 				out.flush();
 			}
 
 			//only close the outputstream if it was opened originally, ie if there was an acceptable header
-			if (inspectHeader()) {
-				
+			if (inspectHeader()) {				
 				out.close();
 			}
 			
@@ -226,7 +223,6 @@ public class UrlCache {
 			e.printStackTrace();
 		}
 	}
-
 	
 	/**
 	 * // checks header to see if it is ok to create a file
@@ -252,7 +248,7 @@ public class UrlCache {
 	 * @param fileName The name of the file
 	 * @return a newly created file
 	 */		
-	private File makeFileAndDir(String path, String fileName) {
+	public File makeFileAndDir(String path, String fileName) {
 		// concatenate the file path
 		String dir = System.getProperty("user.dir");
 		String separator = System.getProperty("file.separator");

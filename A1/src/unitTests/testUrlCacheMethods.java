@@ -20,10 +20,7 @@ public class testUrlCacheMethods {
 		
 		if(catalogFile.exists()){
 			catalogFile.delete();
-		}
-		
-
-		
+		}		
 		try {
 			urlCache = new UrlCache();
 		} catch (UrlCacheException e) {
@@ -67,8 +64,16 @@ public class testUrlCacheMethods {
 	
 		String testFilePath = "people.ucalgary.ca/~mghaderi/test/uc.gif";
 		File testFile = new File(testFilePath);
-		assertEquals(true,testFile.exists());
+		assertEquals(true,testFile.exists());		
+	}
+	
+	@Test
+	public void testMakeFileAndDir(){
+		String testFileName = "TestFileName.txt";
+		String testPath = "testDir/testSubDir/";
 		
+		File testFile = urlCache.makeFileAndDir(testPath, testFileName);
+		assertEquals(true,testFile.exists());
 	}
 
 }
