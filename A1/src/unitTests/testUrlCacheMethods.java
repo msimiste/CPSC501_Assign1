@@ -45,6 +45,21 @@ public class testUrlCacheMethods {
 		}		
 	}
 	
+	@After
+	public void secondTearDown(){
+		
+		String testFilePath = "testDir/testSubDir/TestFileName.txt"; 
+		File testFile = new File(testFilePath);
+		File parent = new File("testDir/testSubDir/");
+		File grandParent = new File("testDir");
+		
+		if(testFile.exists()){
+			testFile.delete();
+			parent.delete();
+			grandParent.delete();
+		}
+	}
+	
 	
 	@Test (expected = UrlCacheException.class)
 	public void testGetObjectForUrlCacheException() throws UrlCacheException{
